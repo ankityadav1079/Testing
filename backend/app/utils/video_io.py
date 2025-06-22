@@ -13,7 +13,7 @@ def save_video(video_tensor, params):
                         imageio.mimsave(raw_path, (video_tensor * 255).astype(np.uint8), format="GIF", fps=params.get("fps", 8))
                             return raw_path
 
-                            def convert_to_mp4(input_path):
+def convert_to_mp4(input_path):
                                 mp4_path = input_path.replace(".gif", ".mp4")
                                     cmd = [
                                             "ffmpeg",
@@ -26,8 +26,7 @@ def save_video(video_tensor, params):
                                                                                                 ]
                                                                                                     subprocess.run(cmd, check=True)
                                                                                                         return "/" + mp4_path  # for static file serving
-
-                                                                                                        def fetch_video_url(task_id):
+ def fetch_video_url(task_id):
                                                                                                             for ext in [".mp4", ".gif"]:
                                                                                                                     possible = os.path.join("outputs", f"{task_id}{ext}")
                                                                                                                             if os.path.exists(possible):
